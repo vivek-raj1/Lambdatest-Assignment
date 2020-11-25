@@ -1,0 +1,17 @@
+version: '2'
+services: 
+  chrome:
+    image: vivekraj00/lamdatest:selenium-python-screenshot
+    volumes:
+      - ./chrome.py:/scripts/chrome.py
+      - ./screenshot/chrome:/scripts/screenshot
+      - ./.aws:/root/.aws
+    command: python /scripts/chrome.py -u "${URL}" 
+
+  firefox:
+    image: vivekraj00/lamdatest:selenium-python-screenshot
+    volumes:
+      - ./firefox.py:/scripts/firefox.py
+      - ./screenshot/firefox:/scripts/screenshot
+      - ./.aws:/root/.aws
+    command: python /scripts/firefox.py -u "${URL}"
